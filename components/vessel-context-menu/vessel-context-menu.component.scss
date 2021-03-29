@@ -1,0 +1,88 @@
+@import '../../../shared/assets/styles/variables.scss';
+
+::ng-deep {
+    .ngx-contextmenu .dropdown-menu {
+        border-color: var(--border-color);
+        background-color: var(--active-prim-bg-color);
+        padding: 0;
+        width: 170px;
+    }
+
+    .ngx-contextmenu  {
+        li {
+            border-color: var(--border-color);
+            min-height: 40px;
+
+            &:first-child {
+                border-top: none;
+                margin-top: $margin-small;
+            }
+
+            &:last-child {
+                border-top:none;
+                margin-bottom: $margin-small;
+            }
+
+            a {
+                height: 100%;
+                width: 100%;
+                text-decoration: none;
+                display: block;
+                color: var(--prim-text-color);
+
+                &.hasSubMenu {
+                    position: relative;
+
+                    &:before {
+                        position: absolute;
+                        top: $margin-middle;
+                        right: $margin-small;
+                    }
+                }
+
+                div {
+                    color: var(--prim-text-color);
+                    padding: 0.6em 1em;
+                    font-size: 16px;
+
+                    &.selected {
+                        background: var(--prim-vessel-bg-selected);
+                        color: var(--selected-context-menu-text-color)
+                    }
+
+                    &:hover {
+                        color: var(--selected-context-menu-text-color)
+                    }
+
+                    &.disabled {
+                        cursor: default;
+                        color: var(--prim-text-color);
+                        background-color: var(--active-prim-bg-color);
+                    }
+
+                    span {
+                        display: block;
+                        white-space: normal;
+                    }
+                }
+
+                &:hover {
+                    color: var(--selected-context-menu-text-color)
+                }
+
+            }
+
+            &:hover {
+                background: var(--prim-vessel-bg-selected);
+            }
+        }
+    }
+
+    .ngx-contextmenu {
+        .divider {
+            height: 1px;
+            min-height: initial;
+            background: var(--border-color);
+        }
+    }
+}

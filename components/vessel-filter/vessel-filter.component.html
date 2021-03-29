@@ -1,0 +1,11 @@
+<article class="vessel-filter">
+    <div class="control-wrapper">
+        <i class="icon icon-search"></i>
+        <input #filter
+               qa-id="vessel-list-modal-filter"
+               [placeholder]="('VESSELS.NAME' | translate) + '/' + ('VESSELS.MMSI' | translate)" />
+        <i class="icon icon-close"
+           *ngIf="filter.value"
+           (click)="onClearFilter()"></i>
+    </div>
+</article>

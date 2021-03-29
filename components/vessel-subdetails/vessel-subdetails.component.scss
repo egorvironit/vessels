@@ -1,0 +1,19 @@
+@import '../../../shared/assets/styles/variables.scss';
+
+
+.vessel-subdetails {
+    header {
+        background: var(--prim-header-bg-color);
+        height: 32px;
+        font-size: 13px;
+        border: 1px solid var(--border-color);
+        border-left: none;
+        border-right: none;
+        padding-top: $padding-small;
+        padding-left: $padding-small;
+    }
+
+    article {
+        padding: $margin-middle;
+    }
+}

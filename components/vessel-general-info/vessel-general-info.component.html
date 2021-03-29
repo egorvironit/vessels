@@ -1,0 +1,66 @@
+<vessel-subdetails [title]="'VESSELS.DETAILS.GENERAL_INFO' | translate">
+    <article class="vessel-general-info">
+        <div class="row min-height">
+            <div class="col-3 parameter-caption">{{'VESSELS.NAME' | translate}}:</div>
+            <div class="col-4" qa-id="general-info-vessel-name">{{vessel.static?.name | valueOrNA}}</div>
+            <div class="col-3 parameter-caption">{{'VESSELS.DETAILS.VESSEL_TYPE' | translate}}:</div>
+            <div class="col-2" qa-id="general-info-vessel-type">{{vessel.static?.type | valueOrNA}}</div>
+        </div>
+        <div class="row min-height">
+            <div class="col-3 parameter-caption">IMO:</div>
+            <div class="col-4" qa-id="general-info-vessel-imo">{{vessel.static?.imo | valueOrNA}}</div>
+            <div class="col-3 parameter-caption">{{'VESSELS.CALLSIGN' | translate}}:</div>
+            <div class="col-2" qa-id="general-info-vessel-callsign">{{vessel.static?.callsign | valueOrNA}}</div>
+        </div>
+        <div class="row min-height">
+            <div class="col-3 parameter-caption">MMSI:</div>
+            <div class="col-4" qa-id="general-info-vessel-mmsi">{{vessel.static?.mmsi | valueOrNA}}</div>
+            <div class="col-3 parameter-caption">{{'VESSELS.DETAILS.FLAG' | translate}}:</div>
+            <div class="col-2" qa-id="general-info-vessel-flag">{{vessel.static?.flag | valueOrNA}}</div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-3 parameter-caption">{{'COMMON.DESTINATION' | translate}}:</div>
+            <div class="col-4" qa-id="general-info-vessel-destination">{{vessel.static?.destination | valueOrNA}}</div>
+            <div class="col-3 parameter-caption">ETA:</div>
+            <div class="col-2" *ngIf="vessel.static?.eta">
+                <div class="min-height">{{vessel.static.eta | amFromUnix | amUtc | amDateFormat : 'DD MMM YYYY'}}</div>
+                <div class="min-height">{{vessel.static.eta | amFromUnix | amUtc | amDateFormat : 'HH:mm UTC'}}</div>
+            </div>
+            <div class="col-2" *ngIf="!vessel.static?.eta">
+                <div class="min-height">{{vessel.static?.eta | valueOrNA}}</div>
+            </div>
+        </div>
+        <div class="row mt-3 min-height">
+            <div class="col-3 parameter-caption">{{'VESSELS.DETAILS.NAV_STATUS' | translate}}:</div>
+            <div class="col-4" qa-id="general-info-vessel-nav-status">{{vessel.dynamic.navStatus | valueOrNA}}</div>
+            <div class="col-3 parameter-caption">{{'VESSELS.DETAILS.TRACKING_MODE' | translate}}:</div>
+            <div class="col-2" qa-id="general-info-vessel-tracking-mode">{{vessel.dynamic.trackingMode | valueOrNA}}</div>
+        </div>
+        <div class="row min-height">
+            <div class="col-3 parameter-caption">{{'VESSELS.DETAILS.TARGET_CLASS' | translate}}:</div>
+            <div class="col-4" qa-id="general-info-vessel-class">{{vessel.static?.class | valueOrNA}}</div>
+            <div class="col-3 parameter-caption">{{'VESSELS.DETAILS.TRACKING_STATUS' | translate}}:</div>
+            <div class="col-2" qa-id="general-info-vessel-tracking-status">{{vessel.dynamic.trackingStatus | valueOrNA}}</div>
+        </div>
+        <div class="row mt-3 min-height">
+            <div class="col-3 parameter-caption">{{'VESSELS.DETAILS.LENGTH' | translate}}:</div>
+            <div class="col-4" qa-id="general-info-vessel-length">
+                {{vessel.static?.length | valueOrNA: ' m'}}
+            </div>
+            <div class="col-3 parameter-caption">{{'VESSELS.DETAILS.BEAM' | translate}}:</div>
+            <div class="col-2" qa-id="general-info-vessel-beam">
+                {{vessel.static?.beam | valueOrNA: ' m'}}
+            </div>
+        </div>
+        <div class="row min-height">
+            <div class="col-3 parameter-caption">{{'VESSELS.DETAILS.DRAUGHT' | translate}}:</div>
+            <div class="col-4" qa-id="general-info-vessel-draught">
+                {{vessel.static?.draught | valueOrNA: ' m'}}
+            </div>
+            <div class="col-3 parameter-caption">{{'VESSELS.DETAILS.BOARD_HEIGHT' | translate}}:</div>
+            <div class="col-2" qa-id="general-info-vessel-board-height">
+                {{vessel.static?.boardHeight | valueOrNA: ' m'}}
+            </div>
+        </div>
+    </article>
+</vessel-subdetails>

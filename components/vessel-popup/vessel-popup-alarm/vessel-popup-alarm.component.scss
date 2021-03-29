@@ -1,0 +1,42 @@
+@import '../../../../shared/assets/styles/variables';
+
+:host {
+    width: 100%;
+}
+
+.vessel-popup-alarms {
+    background: var(--active-alarm-bg-color);
+
+    .icon {
+        display: block;
+    }
+
+    &-icon-wrapper {
+        border-right: 1px solid var(--alarm-popup-border-color);
+    }
+
+    .scroll-wrapper {
+        position: relative;
+        .vessel-popup-alarms-list {
+            padding: 0px;
+            max-height: 85px;
+            .alarm-data {
+                border-top: 1px solid var(--alarm-popup-border-color);
+                padding-top: $padding-small;
+                padding-bottom: $padding-small;
+                padding-left: $padding-small;
+                display: flex;
+                flex-direction: column;
+
+                span {
+                    color: var(--active-alarm-text-color);
+                    line-height: 15px;
+                }
+
+                &:first-child {
+                    border-top: none;
+                }
+            }
+        }
+    }
+}

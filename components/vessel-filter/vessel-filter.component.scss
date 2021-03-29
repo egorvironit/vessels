@@ -1,0 +1,39 @@
+@import '../../../shared/assets/styles/variables.scss';
+
+.vessel-filter {
+    background: var(--prim-bg-color);
+    padding-top: $margin-middle;
+    padding-bottom: $margin-middle;
+    border-bottom: 1px solid var(--border-color);
+
+    .control-wrapper {
+        margin: auto;
+        width: 95%;
+        height: 34px;
+        background: inherit;
+        background-color: var(--prim-bg-color);
+        box-sizing: border-box;
+        border: 2px solid var(--border-color);
+        border-radius: 3px;
+        box-shadow: none;
+        font-size: 16px;
+        text-align: center;
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        .icon-search {
+            margin-left: $margin-small;
+        }
+
+        input {
+            width: 80%;
+            border: none;
+            outline: none;
+            margin-left: $margin-middle;
+            background-color: var(--prim-bg-color);
+            color: var(--prim-text-color);
+            caret-color: var(--prim-text-color);
+        }
+    }
+}

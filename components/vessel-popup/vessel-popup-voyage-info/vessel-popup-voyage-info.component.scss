@@ -1,0 +1,12 @@
+@import '../../../../shared/assets/styles/variables';
+
+:host {
+    width: 100%;
+
+    article {
+        padding: $padding-middle 0 $padding-middle $padding-middle;
+        .parameter-caption {
+            color: var(--subdetails-caption-text-color)
+        }
+    }
+}

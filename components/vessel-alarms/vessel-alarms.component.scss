@@ -1,0 +1,35 @@
+@import '../../../shared/assets/styles/variables';
+
+vessel-subdetails {
+    article {
+        padding: 0px;
+        max-height: 80px;
+        position: relative;
+    }
+
+    .alarm {
+        min-height: 40px;
+        background: var(--active-alarm-bg-color);
+        border-top: 1px solid var(--alarm-border-color);
+        cursor: pointer;
+        flex-wrap: nowrap;
+
+        &:first-child {
+            border-top: none;
+        }
+
+        i {
+            margin-left: $margin-small;
+        }
+
+        span {
+            color: var(--active-alarm-text-color);
+            font-size: 14px;
+            margin-left: $margin-big;
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}

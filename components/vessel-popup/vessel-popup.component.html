@@ -1,0 +1,17 @@
+<main #main *ngIf="vessel$ | async as vessel">
+    <div class="vessel-popup-chevron"></div>
+    <article class="vessel-status-row">
+        <vessel-popup-header [headerName]="vessel.static?.name || vessel.targetId"
+                             (clickDetailsIcon)="onGoToDetails(vessel.targetId)">
+        </vessel-popup-header>
+    </article>
+    <article *ngIf="(alarms$ | async)?.length" class="vessel-status-row">
+        <vessel-popup-alarm [alarms$]="alarms$"></vessel-popup-alarm>
+    </article>
+    <article class="vessel-status-row">
+        <vessel-popup-voyage-info [data]="vessel.static"></vessel-popup-voyage-info>
+    </article>
+    <article class="vessel-status-row">
+        <vessel-motion-parameters [data]="vessel.dynamic" [isCompactView]="true"></vessel-motion-parameters>
+    </article>
+</main>

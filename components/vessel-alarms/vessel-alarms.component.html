@@ -1,0 +1,8 @@
+<vessel-subdetails [title]="'VESSELS.DETAILS.ACTIVE_ALARMS' | translate" *ngIf="(alarms$ | async).length">
+    <article perfectScrollbar>
+        <div class="alarm row align-items-center" *ngFor="let alarm of alarms$ | async">
+            <i class="icon icon-alert"></i>
+            <span [innerHTML]="alarm.text"></span>
+        </div>
+    </article>
+</vessel-subdetails>

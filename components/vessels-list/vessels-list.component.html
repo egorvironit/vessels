@@ -1,0 +1,79 @@
+<article class="targets-list container-fluid"
+         *ngIf="vessels$ | async as data">
+    <ngx-datatable [rows]="data"
+                   [columnMode]="'force'"
+                   [reorderable]="false"
+                   [scrollbarV]="true"
+                   [scrollbarH]="false"
+                   [rowHeight]="40"
+                   [rowClass]="getRowClass(selectedVesselId$ | async)"
+                   [virtualization]="true"
+                   (resize)="onColumnResize()">
+        <ngx-datatable-column [name]="'VESSELS.NAME' | translate"
+                              [comparator]="VesselUtil.nameComparator"
+                              [sortable]="true"
+                              [minWidth]="40"
+                              [canAutoResize]="true"
+                              [draggable]="false">
+            <ng-template let-value="value"
+                         let-row="row"
+                         ngx-datatable-cell-template>
+                <div class="cell-content"
+                     (click)="selectVessel(row)"
+                     (dblclick)="goToVesselDetails(row.targetId)"
+                     (contextmenu)="onContextMenu($event, row)">
+                    {{row.static?.name || row.targetId}}
+                </div>
+            </ng-template>
+        </ngx-datatable-column>
+        <ng-container *ngFor="let col of columns$ | async as columns; let i = index">
+            <ngx-datatable-column *ngIf="col.id !== 'none'"
+                                  [name]="col.title | translate"
+                                  [prop]="col.prop"
+                                  [comparator]="VesselUtil.comparator"
+                                  [sortable]="col.sortable"
+                                  [canAutoResize]="true"
+                                  [resizeable]="columns.length - 1 !== i"
+                                  [draggable]="false"
+                                  [minWidth]="40">
+                <ng-template let-value="value"
+                             let-row="row"
+                             ngx-datatable-cell-template>
+                    <div class="cell-content"
+                         (click)="selectVessel(row)"
+                         (dblclick)="goToVesselDetails(row.targetId)"
+                         (contextmenu)="onContextMenu($event, row)"
+                         [ngSwitch]="col.id">
+                        <ng-template ngSwitchCase="eta">
+                            <span *ngIf="value">{{value | amFromUnix | amUtc | amDateFormat : 'DD MMM YYYY HH:mm:ss' }}</span>
+                            <span *ngIf="!value">{{value | valueOrNA }}</span>
+                        </ng-template>
+                        <ng-template ngSwitchCase="position">
+                            {{value?.lat | coordinates: 'lat'}} {{value?.lon | coordinates: 'lon'}}
+                        </ng-template>
+                        <ng-template ngSwitchDefault>{{value | valueOrNA}}</ng-template>
+                    </div>
+                </ng-template>
+            </ngx-datatable-column>
+        </ng-container>
+        <ngx-datatable-column [width]="30"
+                              [sortable]="false"
+                              [resizeable]="false"
+                              [minWidth]="30"
+                              [maxWidth]="30"
+                              [canAutoResize]="false"
+                              [draggable]="false">
+            <ng-template let-row="row"
+                         ngx-datatable-cell-template>
+                <div (click)="goToVesselDetails(row.targetId)"
+                     class="cell-content">
+                    <i class="align-self-center icon icon-chevron"
+                       qa-id="vessel-list-modal-table-chevron">
+                    </i>
+                </div>
+            </ng-template>
+        </ngx-datatable-column>
+    </ngx-datatable>
+
+    <vessels-targets-context-menu #list></vessels-targets-context-menu>
+</article>

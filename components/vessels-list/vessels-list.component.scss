@@ -1,0 +1,108 @@
+@import '../../../shared/assets/styles/variables.scss';
+
+.targets-list {
+    height: 100%;
+    padding: 0px;
+}
+
+::ng-deep {
+    .ngx-datatable {
+        height: 100%;
+        width: 100%;
+
+        >* {
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-style: normal;
+            font-size: 14px;
+        }
+
+        .datatable-body {
+            max-height: calc(100vh - 55px - 38px - 22px - 48px);
+        }
+
+        .datatable-header {
+            background: var(--prim-header-bg-color);
+            border-bottom: 1px solid var(--border-color);
+            color: var(--table-header-text-color);
+            font-size: 12px;
+
+            .datatable-header-inner {
+                height: 100%;
+
+                .datatable-header-cell {
+                    display: flex;
+                    align-items: center;
+                    padding: 0 $padding-small;
+                    border-right: 1px solid var(--border-color);
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                }
+            }
+
+            .datatable-row-right {
+                background: var(--prim-header-bg-color);
+            }
+
+            .datatable-header-cell:last-child {
+                border-right: none;
+            }
+        }
+
+        .datatable-scroll {
+            width: 100% !important;
+        }
+
+        .datatable-body {
+            overflow-x: hidden;
+        }
+
+        .datatable-row-wrapper {
+            width: 100%;
+        }
+        .datatable-body-row {
+            width: 100% !important;
+            padding: 0px;
+            border-bottom: 1px solid var(--border-color);
+            background: var(--prim-bg-color);
+
+            &:not(.active).inactive {
+                color: var(--title-text-color);
+            }
+
+            &:hover {
+                cursor: pointer;
+                background-color: var(--secondary-button-hover-bg-color);
+
+                .datatable-row-right {
+                    .datatable-body-cell-label {
+                        background-color: var(--secondary-button-hover-bg-color);
+                    }
+                }
+            }
+
+            &.alarmed {
+                color: var(--alarmed-vessel-text-color);
+            }
+
+            &.active {
+                background-color: var(--prim-vessel-bg-selected);
+            }
+
+            .datatable-body-cell {
+                .datatable-body-cell-label {
+                    height: 100%;
+                }
+
+                .cell-content {
+                    display: flex;
+                    align-items: center;
+                    height: 100%;
+                    padding: 0 $padding-small;
+                }
+
+            }
+        }
+    }
+}

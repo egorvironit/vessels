@@ -1,0 +1,27 @@
+<vessel-subdetails [title]="'VESSELS.DETAILS.MOTION_PARAMETERS' | translate" [isHeaderVisible]="!isCompactView">
+    <article>
+        <div class="course row align-items-center" [ngClass]="{'compact-view': isCompactView}">
+            <div class="parameter">
+                <div class="parameter-caption">COG</div>
+                <div class="parameter-value">{{data.cog | valueOrNA: '°'}}</div>
+            </div>
+            <div class="parameter">
+                <div class="parameter-caption">SOG</div>
+                <div class="parameter-value">{{data.sog | valueOrNA: ' kn'}}</div>
+            </div>
+            <div class="parameter">
+                <div class="parameter-caption">HDG</div>
+                <div class="parameter-value">{{data.heading | valueOrNA}}°</div>
+            </div>
+        </div>
+        <div class="vessel-position">
+            <div class="parameter row">
+                <div class="parameter-caption">{{'COMMON.POSITION' | translate}}:</div>
+                <div class="parameter-value">
+                    <span>{{data.position.lat | coordinates: 'lat'}}</span>
+                    <span>{{data.position.lon | coordinates: 'lng'}}</span>
+                </div>
+            </div>
+        </div>
+    </article>
+</vessel-subdetails>

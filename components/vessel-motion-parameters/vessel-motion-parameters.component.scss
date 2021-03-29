@@ -1,0 +1,72 @@
+@import '../../../shared/assets/styles/variables';
+
+:host {
+    width: 100%;
+}
+
+vessel-subdetails {
+    .position, .course {
+        padding: $padding-middle 0 $padding-middle $padding-middle;
+    }
+
+    .course {
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 0px;
+    }
+
+    .compact-view {
+        padding-bottom: 9px;
+
+        .parameter {
+            margin-left: 25px;
+
+            .parameter-value {
+                font-size: 20px;
+            }
+
+            &:first-child {
+                margin-left: 0px;
+            }
+        }
+    }
+
+    .parameter {
+        margin-left: 50px;
+
+        &:first-child {
+            margin-left: 0px;
+        }
+
+        .parameter-caption {
+            font-size: 14px;
+            color: var(--subdetails-caption-text-color);
+        }
+
+        .parameter-value {
+            font-size: 28px;
+        }
+    }
+
+    .vessel-position {
+        padding: $padding-middle 0 $padding-middle $padding-middle;
+
+        .parameter-value {
+            margin-left: $margin-middle;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+
+            span:last-child {
+                line-height: .7;
+            }
+        }
+    }
+
+    .parameters-separator {
+        height: 1px;
+        background: var(--border-color);
+        margin-top: $margin-middle;
+        margin-bottom: $margin-middle;
+    }
+}

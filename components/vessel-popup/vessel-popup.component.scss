@@ -1,0 +1,46 @@
+@import '../../../shared/assets/styles/variables';
+
+main {
+    width: 260px;
+    position: absolute;
+    background: var(--prim-bg-color);
+    border-radius: 2px;
+    box-shadow: -2px 3px 5px rgba(0, 0, 0, 0.35);
+    font-size: 14px;
+    top: 57px;
+    left: -17px;
+
+    article {
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .vessel-popup-chevron {
+        width: 0;
+        height: 0;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 12px solid var(--prim-bg-color);
+        position: absolute;
+        top: -12px;
+        left: 15px;
+    }
+    & > .row {
+        padding: 10px;
+        &.vessel-position {
+            padding: 0;
+        }
+    }
+    .vessel-status-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        issue-counts {
+            height: 100%;
+            padding: 0 $padding-small;
+        }
+    }
+}
+
+voyage-info {
+    line-height: 17px;
+}

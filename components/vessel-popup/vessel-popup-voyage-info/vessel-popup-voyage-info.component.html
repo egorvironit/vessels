@@ -1,0 +1,15 @@
+<article>
+    <div class="row min-height">
+        <div class="col-4 parameter-caption">MMSI:</div>
+        <div class="col-4 parameter-value">{{data?.mmsi | valueOrNA}}</div>
+    </div>
+    <div class="row">
+        <div class="col-4 parameter-caption">{{'COMMON.DESTINATION' | translate}}:</div>
+        <div class="col parameter-value">{{data?.destination | valueOrNA}}</div>
+
+    </div>
+    <div class="row min-height">
+        <div class="col-4 parameter-caption">ETA:</div>
+        <div class="min-height parameter-value">{{data?.eta ? (data.eta | amFromUnix | amUtc | amDateFormat :'DD MMM YYYY HH:mm UTC') : (data?.eta | valueOrNA) }}</div>
+    </div>
+</article>

@@ -1,0 +1,12 @@
+<div class="vessel-popup-alarms row" *ngIf="(alarms$ | async).length">
+    <div class="col-sm-2 row justify-content-center vessel-popup-alarms-icon-wrapper">
+        <i class="icon icon-alert align-self-center"></i>
+    </div>
+    <div class="col scroll-wrapper">
+        <div class="col vessel-popup-alarms-list" perfectScrollbar>
+            <div class="alarm-data" *ngFor="let alarm of alarms$ | async">
+                <span [innerHTML]="alarm.text"></span>
+            </div>
+        </div>
+    </div>
+</div>

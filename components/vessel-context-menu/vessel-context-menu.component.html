@@ -1,0 +1,32 @@
+<context-menu #menu>
+    <ng-template [visible]="isLinkVisible"
+                 contextMenuItem
+                 let-item>
+        <div>
+            <span class="text-ellipsis"
+                  (click)="openLink(item.static.link)">
+                {{item.static.linkText}}
+            </span>
+        </div>
+    </ng-template>
+
+    <context-menu #subMenuMove>
+        <ng-template contextMenuItem (execute)="displayTrack(null)">
+            <div>
+                {{'VESSELS.NO_TRACK' | translate}}
+            </div>
+        </ng-template>
+        <ng-template contextMenuItem divider="true"></ng-template>
+        <ng-template contextMenuItem (execute)="displayTrack(item.period)" *ngFor="let item of TrackPeriods">
+            <div [ngClass]="{'selected': (trackPeriod$ | async) === item.period}">
+                {{item.title | translate}}
+            </div>
+        </ng-template>
+    </context-menu>
+
+    <ng-template contextMenuItem [subMenu]="subMenuMove">
+        <div>
+            {{'VESSELS.DISPLAY_TRACK' | translate}}
+        </div>
+    </ng-template>
+</context-menu>
